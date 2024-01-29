@@ -1,2 +1,2 @@
 # The T Programming Language
-Roadmap, development for the ARM and x86_64 family of architectures.
+Roadmap, development for the RISC-V, ARM, x86_64 family of architectures.
