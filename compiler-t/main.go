@@ -7,6 +7,19 @@ import (
 )
 
 func main() {
+
+	LABEL:
+	a := func() int {
+		LABEL:
+		goto LABEL
+		return 0
+	}()
+
+	if a == 0 {
+		goto LABEL
+	}
+	
+	
 	srcFile, err := os.OpenFile("../main.t", os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatal(err)
