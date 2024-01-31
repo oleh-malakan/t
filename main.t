@@ -1,4 +1,4 @@
-env t.arch {
+#env t.arch {
 case "RISC-V":
 
 }
