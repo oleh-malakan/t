@@ -1,19 +1,12 @@
-source "github.com/oleh-malakan/t-lib/std.t"
-
-print(s string) {
-CLEAR:
-    std.Clear()
-main:
-    std.Print(s)
-}
+source "out/out.t"
 
 hello := "Hello, world!"
 i := 0
-LOOP: 
-    print(hello[i])
+loop: 
+    out.Print(hello[i])
     if i < 10 {
         i++
-        goto LOOP
+        goto loop
     }
 
-print("Hello, world!\n") from CLEAR
+out.Print("Hello, world!\n") from Clear

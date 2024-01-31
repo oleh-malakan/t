@@ -1,1 +1,1 @@
-source "hello.t" from Message("Hello, T!")
+source "hello.t" from message("Hello, T!")
