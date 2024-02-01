@@ -5,3 +5,6 @@ print(s string) {
 }
 
 print("Hello, world!")
+
+source "color/color.t"
+color.Print("Hello, world!", 255, 255, 255)
