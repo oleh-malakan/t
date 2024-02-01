@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	srcFile, err := os.OpenFile("../main.t", os.O_RDONLY, os.ModePerm)
+	srcFile, err := os.OpenFile("../t.t", os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatal(err)
 	}
