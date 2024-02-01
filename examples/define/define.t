@@ -1,5 +1,4 @@
 source "t-lib/std.t"
-
 std.Print(#hello, "\n")
 
 #title "arch: "
