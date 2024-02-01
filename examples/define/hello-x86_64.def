@@ -1,0 +1,2 @@
+hello = "Hello, x86_64!"
+t.arch = "x86_64"

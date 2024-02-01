@@ -1,0 +1,2 @@
+hello = "Hello, ARM!"
+t.arch = "ARM"
