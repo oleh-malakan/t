@@ -1,4 +1,4 @@
-source "t-lib/std.t"
+source t-lib/std
 std.Print(#hello, "\n")
 
 #title "arch: "

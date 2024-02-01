@@ -1,2 +1,2 @@
-source "t-lib/std.t"
+source t-lib/std
 std.Print("Hello, world!\n")

@@ -1,4 +1,4 @@
-source "t-lib/std.t"
+source t-lib/std
 
 Print(s string) {
 Clear:

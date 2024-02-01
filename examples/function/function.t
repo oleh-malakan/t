@@ -1,4 +1,4 @@
-source "t-lib/std.t"
+source t-lib/std
 
 print(s string) {
     std.Print(s)
@@ -6,5 +6,5 @@ print(s string) {
 
 print("Hello, world!\n")
 
-source "color/color.t"
+source color/color
 color.Print("Hello, world!\n", 255, 255, 255)

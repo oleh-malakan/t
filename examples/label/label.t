@@ -1,4 +1,4 @@
-source "out/out.t"
+source out/out
 
 hello := "Hello, world!\n"
 i := 0

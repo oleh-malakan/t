@@ -1,4 +1,4 @@
-source "t-lib/std.t"
+source t-lib/std
 
 Print(s string, r, g, b byte) {
     prev := std.SetColor(r, g, b)
