@@ -1,10 +1,10 @@
 source "t-lib/std.t"
 
 print(s string) {
-    std.Print(s, "\n")
+    std.Print(s)
 }
 
-print("Hello, world!")
+print("Hello, world!\n")
 
 source "color/color.t"
-color.Print("Hello, world!", 255, 255, 255)
+color.Print("Hello, world!\n", 255, 255, 255)

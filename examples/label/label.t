@@ -1,10 +1,10 @@
 source "out/out.t"
 
-hello := "Hello, world!"
+hello := "Hello, world!\n"
 i := 0
 loop: 
     out.Print(hello[i])
-    if i < 10 {
+    if i < len(hello) {
         i++
         goto loop
     }
