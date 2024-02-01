@@ -1,4 +1,4 @@
-source "github.com/oleh-malakan/t-lib/std.t"
+source "t-lib/std.t"
 
 Print(s string) {
 Clear:
