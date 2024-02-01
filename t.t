@@ -1,4 +1,4 @@
-#env t.arch {
+#switch t.arch {
 case "ARM":
 
 }
