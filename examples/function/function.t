@@ -1,4 +1,4 @@
-source t-lib/std
+source "github.com/oleh-malakan/t-lib" std
 
 print(s string) {
     std.Print(s)

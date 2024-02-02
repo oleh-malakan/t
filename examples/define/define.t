@@ -1,4 +1,6 @@
-source t-lib/std
+#t-lib "github.com/oleh-malakan/t-lib" std
+
+source #t-lib
 std.Print(#hello, "\n")
 
 #title "arch: "

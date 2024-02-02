@@ -3,5 +3,5 @@ h := &structure.Hello {
     S: "Hello, world!"
 }
 
-source t-lib/std
+source "github.com/oleh-malakan/t-lib" std
 std.Print(h.S, "\n")

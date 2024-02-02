@@ -1,2 +1,2 @@
-source import "https://github.com/oleh-malakan/t-lib/releases/download/v1.2.3/t-lib-1.2.3.tm" std
+source "github.com/oleh-malakan/t-lib" std
 std.Print("Hello, world!\n")
