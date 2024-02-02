@@ -1,5 +1,5 @@
-source structure
-h := &structure.Hello {
+source entity
+h := entity.Hello {
     S: "Hello, world!"
 }
 

@@ -4,14 +4,14 @@ print(greeting {
     greeting.print()
 }
 
-source "file://../structure" structure
-h := &structure.Hello {
+source "file://../entity" entity
+h := entity.Hello {
     S: "Hello, world!"
 }
 
 source "https://github.com/oleh-malakan/t-lib.git" std
 
-(h *structure.Hello) print() {
+(h entity.Hello) print() {
     std.Print(h.S, "\n")
 }
 
