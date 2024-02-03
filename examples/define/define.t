@@ -6,8 +6,8 @@ std.Print(#hello, "\n")
 #title "arch: "
 
 #switch t.arch {
-case "ARM":
-    std.Print(#title, "ARM\n")
+case "Aarch64":
+    std.Print(#title, "Aarch64\n")
 case "RISC-V":
     std.Print(#title, "RISC-V\n")
 case "x86_64":
