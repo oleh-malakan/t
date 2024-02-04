@@ -1,21 +1,31 @@
 package main
 
 import (
+	"flag"
 	"io"
 	"log"
 	"os"
 )
 
 func main() {
-	srcFile, err := os.OpenFile("./t.t", os.O_RDONLY, os.ModePerm)
+	srcPath := flag.String("src", "../t.t", "")
+	outPath := flag.String("out", "../t.elf", "")
+	flag.Parse()
+	srcFile, err := os.OpenFile(*srcPath, os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	outFile, err := os.Create("./t.elf")
+	outFile, err := os.Create(*outPath)
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer outFile.Close()
+	
+	if err := outFile.Chmod(os.FileMode(0111) | os.ModePerm); err != nil {
+		log.Fatal(err)
+	}
+
 	var outOffset int64
 	output := []byte{
 		0x7F, 0x45, 0x4C, 0x46, 0x02, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -27,7 +37,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	outFile.Sync()
 	outOffset += int64(n)
 
 	b := make([]byte, 1024)
@@ -43,4 +52,5 @@ func main() {
 		}
 		srcOffset += int64(n)
 	}
+
 }
