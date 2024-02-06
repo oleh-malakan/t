@@ -1,5 +1,5 @@
 source entity
-h :<- entity.Hello {
+h := entity.Hello {
     S: "Hello, world!"
 }
 

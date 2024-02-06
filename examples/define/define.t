@@ -6,10 +6,8 @@ std.Print(#hello, "\n")
 #title "arch: "
 
 #switch t.arch {
-case "Aarch64":
-    std.Print(#title, "Aarch64\n")
-case "RISC-V":
-    std.Print(#title, "RISC-V\n")
+case "ARMv8/Aarch64":
+    std.Print(#title, "ARMv8/Aarch64\n")
 case "x86_64":
     std.Print(#title, "x86_64\n")
 default:

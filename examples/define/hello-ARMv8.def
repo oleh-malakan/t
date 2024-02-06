@@ -1,0 +1,2 @@
+hello = "Hello, ARMv8/Aarch64!"
+t.arch = "ARMv8/Aarch64"

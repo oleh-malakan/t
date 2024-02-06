@@ -10,17 +10,11 @@ run hello define
     Hello, world!
     arch: <OS ARCH>
 ***
-run hello-Aarch64 define, Aarch64 architecture computer
+run hello-ARMv8 define, ARMv8/Aarch64 architecture computer
 ***
-    t run define.t -define hello-Aarch64.def
-    Hello, Aarch64!
-    arch: Aarch64
-***
-run hello-RISK-V define, RISC-V architecture computer
-***
-    t run define.t -define hello-RISC-V.def
-    Hello, RISC-V!
-    arch: RISC-V
+    t run define.t -define hello-ARMv8.def
+    Hello, ARMv8/Aarch64!
+    arch: ARMv8/Aarch64
 ***
 run hello-x86_64 define, x86_64 architecture computer
 ***
