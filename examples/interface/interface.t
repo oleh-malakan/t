@@ -5,7 +5,7 @@ print(greeting {
 }
 
 source "file://../entity" entity
-h := entity.Hello {
+h :<- entity.Hello {
     S: "Hello, world!"
 }
 
