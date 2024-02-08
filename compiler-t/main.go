@@ -42,7 +42,7 @@ func main() {
 	b := make([]byte, 1024)
 	var srcOffset int64
 	for {
-		n, err := srcFile.ReadAt(b, outOffset)
+		n, err := srcFile.ReadAt(b, srcOffset)
 		if err != nil && err != io.EOF {
 			log.Fatal(err)
 		}
