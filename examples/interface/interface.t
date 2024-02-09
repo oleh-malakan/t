@@ -1,18 +1,21 @@
+<"github.com/oleh-malakan/t-lib/std"> 
+<"../entity/hello">
+
 print(greeting {
         print() 
     }) {
+
     greeting.print()
 }
 
-source "file://../entity" entity
-h :<- entity.Hello {
-    S: "Hello, world!"
-}
-
-source "https://github.com/oleh-malakan/t-lib.git" std
-
-(h entity.Hello) print() {
+(h hello.Hello) print() {
     std.Print(h.S, "\n")
 }
 
-print(h)
+Main() {
+    h :<- hello.Hello {
+        S: "Hello, world!"
+    }
+
+    print(h)
+}

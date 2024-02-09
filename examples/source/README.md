@@ -1,10 +1,10 @@
-run hello
+run 
 ***
-    t run hello.t
-    Hello, world!
+    t run 
+    Hello, T!
 ***
 run program
 ***
-    t run program.t
-    Hello, T!
+    t run program 
+    Hello, world!
 ***
