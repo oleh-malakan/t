@@ -1,5 +1,5 @@
-<"github.com/oleh-malakan/t-lib/std">
-<"hello">
+<github.com/oleh-malakan/t-lib/std>
+<hello>
 
 Main() {
     h :<- hello.Hello {

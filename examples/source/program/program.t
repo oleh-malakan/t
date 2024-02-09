@@ -1,4 +1,4 @@
-<"github.com/oleh-malakan/t-lib/std">
+<github.com/oleh-malakan/t-lib/std>
 
 hello string
 

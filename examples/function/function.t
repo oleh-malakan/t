@@ -1,5 +1,5 @@
-<"github.com/oleh-malakan/t-lib/std">
-<"color">
+<github.com/oleh-malakan/t-lib/std>
+<color>
 
 print(s string) {
     std.Print(s)
