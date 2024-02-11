@@ -1,4 +1,4 @@
 Main() {
-    p :<- <program>   
-    p.Hello("Hello, T!")
+    h :<- <hello>   
+    h.Hello("Hello, T!")
 }

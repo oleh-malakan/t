@@ -3,8 +3,8 @@ run
     t run 
     Hello, T!
 ***
-run program
+run hello
 ***
-    t run program 
+    t run hello 
     Hello, world!
 ***
