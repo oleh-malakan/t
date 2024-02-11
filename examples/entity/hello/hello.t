@@ -1,3 +1,0 @@
-Hello {
-    S string
-}

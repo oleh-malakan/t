@@ -1,7 +1,7 @@
 <github.com/oleh-malakan/t-lib/std>
 
-#hello "Hello, world!"
+#Hello "Hello, world!"
 
 Main() {
-    std.Print(#hello, "\n")
+    std.Print(#Hello, "\n")
 }

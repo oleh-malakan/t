@@ -1,8 +1,11 @@
 <github.com/oleh-malakan/t-lib/std>
-<hello>
+
+Hello {
+    S string
+}
 
 Main() {
-    h :<- hello.Hello {
+    h :<- Hello {
         S: "Hello, world!"
     }
 

@@ -1,7 +1,7 @@
 <github.com/oleh-malakan/t-lib/std>
 <color>
 
-print(s string) {
+Print(s string) {
     std.Print(s)
 }
 
@@ -9,17 +9,17 @@ Hello {
     S string
 }
 
-(h Hello) print() {
+(h Hello) Print() {
     std.Print(h.S, "\n")
 }
 
 Main() {
-    print("Hello, world!\n")
+    Print("Hello, world!\n")
 
-    h :<- hello.Hello {
+    h :<- Hello {
         S: "Hello, world!"
     }
-    h.print()
+    h.Print()
     
     color.Print("Hello, world!\n", 255, 255, 255)
 }

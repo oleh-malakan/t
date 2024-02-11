@@ -1,15 +1,19 @@
 <github.com/oleh-malakan/t-lib/std> 
-<../entity/hello>
 
-print(greeting {
-        print() 
-    }) {
-
-    greeting.print()
+Printer {
+    Print() 
 }
 
-(h hello.Hello) print() {
+Hello {
+    S string
+}
+
+(h Hello) Print() {
     std.Print(h.S, "\n")
+}
+
+Print(p Printer) {
+    p.Print()
 }
 
 Main() {
@@ -17,5 +21,5 @@ Main() {
         S: "Hello, world!"
     }
 
-    print(h)
+    Print(h)
 }
