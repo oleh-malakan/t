@@ -1,4 +1,5 @@
+<hello>
+
 Main() {
-    h :<- <hello>   
-    h.Hello("Hello, T!")
+    hello.Print()
 }

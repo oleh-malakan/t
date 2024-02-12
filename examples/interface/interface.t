@@ -4,16 +4,16 @@ Printer {
     Print() 
 }
 
+Print(p Printer) {
+    p.Print()
+}
+
 Hello {
     S string
 }
 
 (h Hello) Print() {
     std.Print(h.S, "\n")
-}
-
-Print(p Printer) {
-    p.Print()
 }
 
 Main() {
