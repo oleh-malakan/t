@@ -17,7 +17,7 @@ Hello {
 }
 
 Main() {
-    h :<- hello.Hello {
+    h :<- Hello {
         S: "Hello, world!"
     }
 
