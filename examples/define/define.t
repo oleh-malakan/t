@@ -3,5 +3,5 @@
 #Hello "Hello, world!"
 
 Main() {
-    std.Print(#Hello, "\n")
+    Print(#Hello, "\n")
 }

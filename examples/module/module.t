@@ -1,5 +1,5 @@
 <hello>
 
 Main() {
-    hello.Print()
+    Hello()
 }

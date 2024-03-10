@@ -9,5 +9,5 @@ Main() {
         S: "Hello, world!"
     }
 
-    std.Print(h.S, "\n")
+    Print(h.S, "\n")
 }

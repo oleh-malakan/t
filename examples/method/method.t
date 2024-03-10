@@ -5,7 +5,7 @@ Hello {
 }
 
 (h Hello) Print() {
-    std.Print(h.S, "\n")
+    Print(h.S, "\n")
 }
 
 Main() {

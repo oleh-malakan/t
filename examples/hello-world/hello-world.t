@@ -1,5 +1,5 @@
 <github.com/oleh-malakan/t-lib/std>
 
 Main() {
-    std.Print("Hello, world!\n")
+    Print("Hello, world!\n")
 }
