@@ -1,6 +1,6 @@
 <github.com/oleh-malakan/t-lib/std>
 
-#Hello "Hello, world!"
+#Hello := "Hello, world!"
 
 Main() {
     Print(#Hello, "\n")
