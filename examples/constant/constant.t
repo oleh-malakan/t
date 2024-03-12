@@ -1,4 +1,4 @@
-<github.com/oleh-malakan/t-lib/std>
+<../output>
 
 Hello ::= "Hello, world!"
 

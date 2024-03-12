@@ -1,5 +1,4 @@
-<github.com/oleh-malakan/t-lib/std>
-
 Main() {
-    Print("Hello, world!\n")
+    Hello := "Hello, world!"
+    
 }

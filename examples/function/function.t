@@ -1,7 +1,7 @@
-std <github.com/oleh-malakan/t-lib/std>
+output <../output>
 
 Print(s string) {
-    std.Print(s)
+    output.Print(s)
 }
 
 Main() {

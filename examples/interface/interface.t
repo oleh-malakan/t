@@ -1,4 +1,4 @@
-std <github.com/oleh-malakan/t-lib/std> 
+output <../output> 
 
 Printer {
     Print() 
@@ -13,7 +13,7 @@ Hello {
 }
 
 (h Hello) Print() {
-    std.Print(h.S, "\n")
+    output.Print(h.S, "\n")
 }
 
 Main() {
