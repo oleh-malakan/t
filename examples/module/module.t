@@ -1,5 +1,0 @@
-<hello>
-
-Main() {
-    Hello()
-}

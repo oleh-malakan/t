@@ -1,4 +1,0 @@
-Main() {
-    Hello := "Hello, world!"
-    
-}
