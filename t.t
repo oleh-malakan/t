@@ -1,1 +1,7 @@
+source {
+}
 
+Main() {
+  src :<- source{}
+
+}
