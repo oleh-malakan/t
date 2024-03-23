@@ -1,7 +1,1 @@
-source {} 
 
-Main() {
-	src :<- source{}
-
-
-}
