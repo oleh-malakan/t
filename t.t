@@ -1,8 +1,8 @@
 source {
 }
 
-(s source) Next() bool {
-  return true
+(s source) Next() byte {
+  return nil
 }
 
 act {
@@ -12,7 +12,7 @@ Main() {
   src :<- source{}
   act :<- act{}
 
-  for src.Next() {
+  for b :<- src.Next(); b != nil {
 
   }
 }
