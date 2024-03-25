@@ -8,6 +8,19 @@ source {
 act {
 }
 
+blockCode {
+}
+
+(bc blockCode) Add(b byte, src source) {
+
+  for b :<- src.Next(); b != nil {
+    if (b > 47 && < 58) || (b > 64 && b < 91) || (b > 96 && b < 123) {
+      
+      
+    }
+  }
+}
+
 term { 
   b []byte
 }
@@ -19,12 +32,7 @@ Main() {
   src :<- source{}
   act :<- act{}
 
+  bc :<- blockCode{}
+  bc.Add(nil, src)
 
-  t :<- term{}
-  for b :<- src.Next(); b != nil {
-    if (b > 47 && < 58) || (b > 64 && b < 91) || (b > 96 && b < 123) {
-      t.Add(b)
-      
-    }
-  }
 }
