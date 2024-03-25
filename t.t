@@ -11,18 +11,13 @@ source {
 act {
 }
 
-state {
-  src source
-  act act
-}
-
 blockCode {
 }
 
-(bc blockCode) Parse(st state) {
+(bc blockCode) Parse(src source, act act) {
 
-  for st.src.Next() {
-    b :<- st.src.Byte()
+  for src.Next() {
+    b :<- src.Byte()
     if (b > 47 && < 58) || (b > 64 && b < 91) || (b > 96 && b < 123) {
       
       
@@ -34,16 +29,15 @@ term {
   b []byte
 }
 
-(t term) Parse(st state) {
+(t term) Parse(src source) {
 }
 
 Main() {
-  st :<- {
-    src: source{}
-    act: act{}
-  }
+  src :<- source{}
+  act :<- act{}
+  
 
   bc :<- blockCode{}
-  bc.Parse(st)
+  bc.Parse(src, act)
 
 }
