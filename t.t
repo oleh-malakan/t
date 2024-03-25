@@ -1,8 +1,11 @@
 source {
 }
 
-(s source) Next() byte {
-  return nil
+(s source) Next() bool {
+  return true
+}
+
+(s source) Byte() byte {
 }
 
 act {
@@ -16,9 +19,10 @@ state {
 blockCode {
 }
 
-(bc blockCode) Add(b byte, st state) {
+(bc blockCode) Parse(st state) {
 
-  for b :<- st.src.Next(); b != nil {
+  for st.src.Next() {
+    b :<- st.src.Byte()
     if (b > 47 && < 58) || (b > 64 && b < 91) || (b > 96 && b < 123) {
       
       
@@ -30,7 +34,7 @@ term {
   b []byte
 }
 
-(t term) Add(b byte, st state) {
+(t term) Parse(st state) {
 }
 
 Main() {
@@ -40,6 +44,6 @@ Main() {
   }
 
   bc :<- blockCode{}
-  bc.Add(nil, st)
+  bc.Parse(st)
 
 }
