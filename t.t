@@ -8,13 +8,10 @@ source {
 (s source) Byte() byte {
 }
 
-act {
-}
-
 blockCode {
 }
 
-(bc blockCode) Parse(src source, act act) {
+(bc blockCode) Parse(src source) {
 
   for src.Next() {
     b :<- src.Byte()
@@ -34,10 +31,8 @@ term {
 
 Main() {
   src :<- source{}
-  act :<- act{}
   
-
   bc :<- blockCode{}
-  bc.Parse(src, act)
+  bc.Parse(src)
 
 }
