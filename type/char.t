@@ -1,1 +1,5 @@
+Char {}
 
+(c Char) [==] (@addr) {
+
+}
