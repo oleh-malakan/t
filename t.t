@@ -10,15 +10,17 @@ source {
 (s source) Char() Char {
 }
 
-blockCode {
+code {
 }
 
-(bc blockCode) Parse(src source) {
+(c code) Parse(src source) {
 
+  t term
   for src.Next() {
-    c :<- src.Char()
-    if (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
-            
+    ch :<- src.Char()
+    if (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') {
+      t <- term
+      t.Parse(src)
     }
   }
 }
@@ -30,9 +32,8 @@ term {
 }
 
 Main() {
-  src :<- source{}
-  
-  bc :<- blockCode{}
-  bc.Parse(src)
+  src :<- source
+  c :<- code
+  c.Parse(src)
 
 }
