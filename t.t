@@ -12,47 +12,44 @@ source {
 
 error {}
 
+parseCode(src source) (code, error) {
+}
+
 code {
 }
 
-parseCode(src source) (code, error) {
+(c code) Parse(src source) error {
     for src.Next() {
-        t, err :<- parseTerm(src)
-        if err != nil {
-            return nil, err
+        ch :<- src.Char()
+        if (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') {
+            t :<- term
+            err :<- t.Parse(src)
+            if err != nil {
+                return err
+            }
         }
-
-        if t != nil {
-
-        }
-    }  
+    }
+  }  
 }
 
 term { 
-    value String
+    value string
 }
 
-parseTerm(src source) (term, error) {
-    c :<- src.Char()
-    t term
-    for (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
-        if t == nil {
-            t <- term
-        }
-
+(t term) Parse(src source) error {    
+    for c :<- src.Char();(c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
         t.value += c
-    }
-
-    return t
+        if !src.Next() {
+            break
+        }
+    }        
 }
-
 
 Main() {
     src :<- source
-
-    c, err :<- parseCode(src)
-    if err != nil {
+    c :<- code
+    err :<- c.Parse(src)
+    if err != nil {   
         return
     }
-
 }
