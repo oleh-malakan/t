@@ -1,11 +1,11 @@
 source {
 }
 
-(s source) Next() Bool {
+(s source) Next() bool {
   return true
 }
 
-(s source) Char() Char {
+(s source) Byte() byte {
 }
 
 blockCode {
@@ -14,13 +14,19 @@ blockCode {
 (bc blockCode) Parse(src source) {
 
   for src.Next() {
-    c :<- src.Char()
-    if (c >= '0' && c <= '9') || 
-        (c >= 'A' && c <= 'Z') || 
-        (c >= 'a' && c <= 'z') {      
+    b :<- src.Byte()
+    if (b > 47 && < 58) || (b > 64 && b < 91) || (b > 96 && b < 123) {
+      
       
     }
   }
+}
+
+term { 
+  b []byte
+}
+
+(t term) Parse(src source) {
 }
 
 Main() {
