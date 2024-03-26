@@ -1,2 +1,5 @@
 Bool {
 }
+
+(b Bool) [==] (@addr) {
+}
