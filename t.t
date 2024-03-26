@@ -34,7 +34,7 @@ term {
 }
 
 (t term) Parse(src source) error {    
-    for c :<- src.Char();(c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
+    for c :<- src.Char(); (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
         t.value += c
         if !src.Next() {
             break
