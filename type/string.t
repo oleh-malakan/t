@@ -20,3 +20,6 @@ String {}
 
 (s String) [+] (v Byte) {
 }
+
+(s String) [+] (v Bool) {
+}
