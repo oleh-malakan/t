@@ -12,9 +12,6 @@ source {
 
 error {}
 
-parseCode(src source) (code, error) {
-}
-
 code {
 }
 
