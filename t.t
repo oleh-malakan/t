@@ -12,40 +12,23 @@ source {
 
 error {}
 
-code {
+sequence {
 }
 
-(c code) Parse(src source) error {
-    for src.Next() {
-        ch :<- src.Char()
-        if (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') {
-            t :<- term
-            err :<- t.Parse(src)
-            if err != nil {
-                return err
-            }
-        }
-    }
-  }  
+(s sequence) Parse(src source) error { 
 }
 
-term { 
+statement { 
     value string
 }
 
-(t term) Parse(src source) error {    
-    for c :<- src.Char(); (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
-        t.value += c
-        if !src.Next() {
-            break
-        }
-    }        
+(s statement) Parse(src source) error {           
 }
 
 Main() {
     src :<- source
-    c :<- code
-    err :<- c.Parse(src)
+    s :<- sequence
+    err :<- s.Parse(src)
     if err != nil {   
         return
     }
