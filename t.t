@@ -26,8 +26,8 @@ statement {
 }
 
 Main() {
-    src :<- source
-    s :<- sequence
+	src :<- source
+ 	s :<- sequence
     err :<- s.Parse(src)
     if err != nil {   
         return
