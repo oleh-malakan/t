@@ -4,36 +4,55 @@ source {
 }
 
 (s source) Next() bool {
-  return true
+    return true
 }
 
 (s source) Char() Char {
 }
 
+error {}
+
 code {
 }
 
-(c code) Parse(src source) {
+parseCode(src source) (code, error) {
+    for src.Next() {
+        t, err :<- parseTerm(src)
+        if err != nil {
+            return nil, err
+        }
 
-  t term
-  for src.Next() {
-    ch :<- src.Char()
-    if (ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') {
-      t <- term
-      t.Parse(src)
-    }
-  }
+        if t != nil {
+
+        }
+    }  
 }
 
 term { 
+    value String
 }
 
-(t term) Parse(src source) {
+parseTerm(src source) (term, error) {
+    c :<- src.Char()
+    t term
+    for (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') {
+        if t == nil {
+            t <- term
+        }
+
+        t.value += c
+    }
+
+    return t
 }
+
 
 Main() {
-  src :<- source
-  c :<- code
-  c.Parse(src)
+    src :<- source
+
+    c, err :<- parseCode(src)
+    if err != nil {
+        return
+    }
 
 }
