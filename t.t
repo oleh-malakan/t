@@ -32,7 +32,11 @@ statement {
     value string
 }
 
-(s statement) Parse(src source) error {           
+(s statement) Parse(src source) error {   
+    for src.Next() {
+        c :<- src.Char()
+        
+    }
 }
 
 Main() {
