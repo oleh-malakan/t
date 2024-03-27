@@ -18,7 +18,7 @@ sequence {
 (s sequence) Parse(src source) error { 
     for src.Next {
         c :<- src.Char()
-        if c != ' ' || byte(c) != 10 || byte(c) != 13 {
+        if c != ' ' || c != '\n' || c != '\r' || c != '\t' {
             s :<- statement
             err :<- s.Parse(src)
             if err != nil {
