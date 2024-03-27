@@ -31,3 +31,7 @@ Char {}
 (c Char) [<=] (v Char) bool {
 
 }
+
+(c Char) [()] (v Char) byte {
+
+}
