@@ -33,9 +33,17 @@ statement {
 }
 
 (s statement) Parse(src source) error {   
+    term :<-, String 
     for src.Next() {
         c :<- src.Char()
-        
+        if (c >= '0' && c <= '9') || 
+            (c >= 'A' && c <= 'Z') || 
+            (c >= 'a' && c <= 'z') || 
+            c == '_' {
+            term += c
+        }
+        if c == ' ' {
+        }
     }
 }
 
