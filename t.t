@@ -36,13 +36,16 @@ statement {
     term :<- String 
     for src.Next() {
         c :<- src.Char()
-        if (c >= '0' && c <= '9') || 
-            (c >= 'A' && c <= 'Z') || 
-            (c >= 'a' && c <= 'z') || 
-            c == '_' {
+        if c != ' ' || c != '.' || 
+            c != '{' || c != '}' ||
+            c != '(' || c != ')' ||
+            c != '[' || c != ']' {
             term += c
-        }
+
+            continue 
+        } 
         if c == ' ' {
+            
         }
     }
 }
