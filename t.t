@@ -16,6 +16,10 @@ sequence {
 }
 
 (s sequence) Parse(src source) error { 
+    for src.Next {
+        c :<- src.Char()
+        if c == ' ' || 
+    }
 }
 
 statement { 
