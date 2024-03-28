@@ -47,7 +47,7 @@ statement {
             continue 
         } 
         if c == ' ' {
-            if term.Len() > 0 {
+            if len(term) > 0 {
                 st <- append(st, term)
             }
         }
