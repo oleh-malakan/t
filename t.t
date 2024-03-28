@@ -33,6 +33,7 @@ statement {
 }
 
 (s statement) Parse(src source) error {   
+    st :<- []String
     term :<- String 
     for src.Next() {
         c :<- src.Char()
@@ -46,7 +47,13 @@ statement {
             continue 
         } 
         if c == ' ' {
-            
+            if term.Len() > 0 {
+                if term == 'for' {
+                    
+                }
+                if term == 'if' {
+                }
+            }
         }
     }
 }
