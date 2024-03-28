@@ -15,10 +15,10 @@ error {}
 sequence {
 }
 
-(s sequence) Parse(src source) error { 
+(s sequence) Parse(src *source) error { 
     for {
-        s :<- statement
-        err :<- s.Parse(src)
+        s := statement
+        err := s.Parse(src)
         if err != nil {
             return err
         }
@@ -31,10 +31,10 @@ sequence {
 statement { 
 }
 
-(s statement) Parse(src source) error {   
+(s statement) Parse(src *source) error {   
     for {
-        t :<- term
-        err :<- t.Parse(src)
+        t := term
+        err := t.Parse(src)
         if err != nil {
             return err
         }
@@ -53,11 +53,11 @@ term {
     value string
 }
 
-(t term) Parse(src source) error {
+(t term) Parse(src *source) error {
     isName bool
     isOperator bool
     for {
-        c :<- src.Char()
+        c := src.Char()
         if c == ' ' {
             if len(t.value) > 0 {         
                 break
@@ -100,9 +100,9 @@ term {
 
 
 Main() {
-    src :<- source
-    s :<- sequence
-    err :<- s.Parse(src)
+    src := &source
+    s := &sequence
+    err := s.Parse(src)
     if err != nil {   
         return
     }
