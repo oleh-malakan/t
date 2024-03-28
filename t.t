@@ -56,7 +56,7 @@ term {
 (t term) Parse(src source) error {
     isName bool
     isOperator bool
-    for src.Next() {
+    for {
         c :<- src.Char()
         if c == ' ' {
             if len(t.value) > 0 {         
@@ -83,8 +83,13 @@ term {
 
             return nil
         }
-        
+        if !src.Next() {
+            break
+        }
     }
+
+
+
 
 
 
