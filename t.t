@@ -96,7 +96,6 @@ term {
     return nil
 }
 
-
 Main() {
     src := &source
     s := &sequence
