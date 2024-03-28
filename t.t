@@ -50,17 +50,30 @@ term {
     isEndSequence bool
     isIf bool
     isFor bool
+    value string
 }
 
 (t term) Parse(src source) error {
     for src.Next() {
         c :<- src.Char()
+        if c == ' ' {
+            if len(t.value) == 0 {         
+                continue
+            }
+            
+        }
+        if (c >= '0' && c <= '9') || 
+            (c >= 'A' && c <= 'Z') || 
+            (c >= 'a' && c <= 'z') || c == '_' {
+            t.value += c
+        }
         if c == '{' {
             t.isBeginSequence = true
 
             return nil
         }
     }
+
     return nil
 }
 
