@@ -33,8 +33,8 @@ statement {
 }
 
 (s statement) Parse(src source) error {   
-    st :<- []String
-    term :<- String 
+    st :<- []string
+    term :<- string 
     for src.Next() {
         c :<- src.Char()
         if c != ' ' || c != '.' || 
@@ -48,12 +48,7 @@ statement {
         } 
         if c == ' ' {
             if term.Len() > 0 {
-                st 
-                if term == 'for' {
-                    
-                }
-                if term == 'if' {
-                }
+                st <- append(st, term)
             }
         }
     }
