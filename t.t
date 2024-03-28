@@ -16,42 +16,39 @@ sequence {
 }
 
 (s sequence) Parse(src source) error { 
-    for src.Next {
-        c :<- src.Char()
-        if c != ' ' || c != '\n' || c != '\r' || c != '\t' {
-            s :<- statement
-            err :<- s.Parse(src)
-            if err != nil {
-                return err
-            }
+    for {
+        s :<- statement
+        err :<- s.Parse(src)
+        if err != nil {
+            return err
         }
+
     }
+
+    return nil 
 }
 
 statement { 
-    value string
 }
 
 (s statement) Parse(src source) error {   
-    st :<- []string
-    term :<- string 
-    for src.Next() {
-        c :<- src.Char()
-        if c != ' ' || c != '.' || 
-            c != '{' || c != '}' ||
-            c != '(' || c != ')' ||
-            c != '[' || c != ']' ||
-            c != ';' || c != '\n' || c != '\r'{
-            term += c
-
-            continue 
-        } 
-        if c == ' ' {
-            if len(term) > 0 {
-                st <- append(st, term)
-            }
+    for {
+        t :<- term
+        err :<- t.Parse(src)
+        if err != nil {
+            return err
         }
     }
+
+    return nil
+}
+
+term {
+}
+
+(t term) Parse(src source) error {
+
+    return nil
 }
 
 Main() {
