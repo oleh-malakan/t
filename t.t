@@ -7,7 +7,7 @@ source {
     return true
 }
 
-(s source) Char() Char {
+(s source) Char() char {
 }
 
 error {}
@@ -48,6 +48,7 @@ statement {
         } 
         if c == ' ' {
             if term.Len() > 0 {
+                st 
                 if term == 'for' {
                     
                 }
