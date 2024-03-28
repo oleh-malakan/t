@@ -44,12 +44,24 @@ statement {
 }
 
 term {
+    isName bool
+    isOperator bool
+    isBeginSequence bool
+    isEndSequence bool
+    isIf bool
+    isFor bool
 }
 
 (t term) Parse(src source) error {
-
+    for src.Next() {
+        c :<- src.Char()
+        if c == '{' {
+            t.isBeginSequence = true
+        }
+    }
     return nil
 }
+
 
 Main() {
     src :<- source
