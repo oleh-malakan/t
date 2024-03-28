@@ -57,6 +57,8 @@ term {
         c :<- src.Char()
         if c == '{' {
             t.isBeginSequence = true
+
+            return nil
         }
     }
     return nil
