@@ -103,11 +103,10 @@ term {
 
 Main() {
     src := @source
-    defer @src
     s := @sequence
-    defer @s
     err := s.Parse(src)
     if err != nil {   
         return
     }
+    @s, @src
 }
