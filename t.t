@@ -15,7 +15,7 @@ sequence {
 
 (s sequence) Parse(src @source) error { 
     for {
-        s := &statement
+        s := @statement
         err := s.Parse(src)
         if err != nil {
             return err
@@ -31,7 +31,7 @@ statement {
 
 (s statement) Parse(src @source) error {   
     for {
-        t := &*term
+        t := *term
         err := t.Parse(src)
         if err != nil {
             return err
@@ -102,10 +102,10 @@ term {
 }
 
 Main() {
-    src := &@source
-    defer free(src)
-    s := &@sequence
-    defer free(s)
+    src := @source
+    defer @src
+    s := @sequence
+    defer @s
     err := s.Parse(src)
     if err != nil {   
         return
