@@ -13,9 +13,9 @@ error {}
 sequence {
 }
 
-(s sequence) Parse(src @source) error { 
+(s sequence) Parse(src *source) error { 
     for {
-        s := @statement
+        s := *statement
         err := s.Parse(src)
         if err != nil {
             return err
@@ -29,9 +29,9 @@ sequence {
 statement { 
 }
 
-(s statement) Parse(src @source) error {   
+(s statement) Parse(src *source) error {   
     for {
-        t := *term
+        t := @term
         err := t.Parse(src)
         if err != nil {
             return err
@@ -43,7 +43,7 @@ statement {
     return nil
 }
 
-(s statement) IfAutoMemoryGC(t *term) {
+(s statement) IfAutoMemoryGC(t @term) {
 }
 
 term {
@@ -56,7 +56,7 @@ term {
     value string
 }
 
-(t term) Parse(src @source) error {
+(t term) Parse(src *source) error {
     isName bool
     isOperator bool
     for {
@@ -102,11 +102,11 @@ term {
 }
 
 Main() {
-    src := @source
-    s := @sequence
+    src := *source
+    s := *sequence
     err := s.Parse(src)
     if err != nil {   
         return
     }
-    @s; @src
+    *s; *src
 }
