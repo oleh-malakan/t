@@ -108,5 +108,5 @@ Main() {
     if err != nil {   
         return
     }
-    @s, @src
+    @s; @src
 }
