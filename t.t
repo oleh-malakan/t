@@ -68,7 +68,7 @@ term {
 
             continue 
         }
-        if !isOperator $$ ((c >= '0' && c <= '9') || 
+        if !isOperator && ((c >= '0' && c <= '9') || 
             (c >= 'A' && c <= 'Z') || 
             (c >= 'a' && c <= 'z') || c == '_') {
             t.value += c
