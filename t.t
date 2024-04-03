@@ -15,7 +15,7 @@ sequence {
 
 (s sequence) Parse(src *source) error { 
     for {
-        s := new statement
+        s := &statement
         err := s.Parse(src)
         if err != nil {
             return err
@@ -31,7 +31,7 @@ statement {
 
 (s statement) Parse(src *source) error {   
     for {
-        t := new term
+        t := &term
         err := t.Parse(src)
         if err != nil {
             return err
@@ -98,12 +98,10 @@ term {
 }
 
 Main() {
-    src := new source
-    s := new sequence
+    src := &source
+    s := &sequence
     err := s.Parse(src)
     if err != nil {   
         return
     }
-    free s
-    free src
 }
