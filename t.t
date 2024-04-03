@@ -15,7 +15,7 @@ sequence {
 
 (s sequence) Parse(src *source) error { 
     for {
-        s := *statement
+        s := new statement
         err := s.Parse(src)
         if err != nil {
             return err
