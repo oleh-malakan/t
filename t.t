@@ -87,8 +87,6 @@ term {
 
             t.value += c
             t.isName = true
-
-            continue 
         }
 
         if !src.Next() {
