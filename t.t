@@ -47,15 +47,13 @@ term {
     isOperator bool
     isBeginSequence bool
     isEndSequence bool
-    isIf bool
-    isFor bool
     value string
 }
 
 (t term) Parse(src *source) error {
     isName bool
     isOperator bool
-    for {
+    for src.Next() {
         c := src.Char()
         if c == ' ' {
             if len(t.value) > 0 {         
@@ -85,27 +83,17 @@ term {
         if ((c >= '0' && c <= '9') || 
             (c >= 'A' && c <= 'Z') || 
             (c >= 'a' && c <= 'z') || c == '_') {
-            if isOperator {
+            if t.isOperator {
                 break
             }
 
             t.value += c
-            isName = true
+            t.isName = true
 
             continue 
         }
-        
-        if !src.Next() {
-            break
-        }
-
 
     }
-
-
-
-
-
 
     return nil
 }
