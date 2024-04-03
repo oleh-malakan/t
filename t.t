@@ -31,7 +31,7 @@ statement {
 
 (s statement) Parse(src *source) error {   
     for {
-        t := @term
+        t := auto term
         err := t.Parse(src)
         if err != nil {
             return err
@@ -102,11 +102,12 @@ term {
 }
 
 Main() {
-    src := *source
-    s := *sequence
+    src := new source
+    s := new sequence
     err := s.Parse(src)
     if err != nil {   
         return
     }
-    *s; *src
+    free s
+	free src
 }
