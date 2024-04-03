@@ -47,8 +47,8 @@ term {
     isOperator bool
     isBeginBrackets bool
     isEndBrackets bool
-    isBeginSequence bool
-    isEndSequence bool
+    isBeginCurlyBrackets bool
+    isEndCurlyBrackets bool
     value string
 }
 
@@ -69,7 +69,7 @@ term {
                 break
             }
 
-            t.isBeginSequence = true
+            t.isBeginCurlyBrackets = true
 
             return nil
         }
@@ -78,7 +78,7 @@ term {
                 break
             }
 
-            t.isEndSequence = true
+            t.isEndCurlyBrackets = true
 
             return nil
         }
