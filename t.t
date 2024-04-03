@@ -64,24 +64,37 @@ term {
 
             continue 
         }
-        if !isOperator && ((c >= '0' && c <= '9') || 
-            (c >= 'A' && c <= 'Z') || 
-            (c >= 'a' && c <= 'z') || c == '_') {
-            t.value += c
-            isName = true
-
-            continue 
-        }
         if c == '{' {
+            if len(t.value) > 0 {         
+                break
+            }
+
             t.isBeginSequence = true
 
             return nil
         }
         if c == '}' {
+            if len(t.value) > 0 {         
+                break
+            }
+
             t.isEndSequence = true
 
             return nil
         }
+        if ((c >= '0' && c <= '9') || 
+            (c >= 'A' && c <= 'Z') || 
+            (c >= 'a' && c <= 'z') || c == '_') {
+            if isOperator {
+                break
+            }
+
+            t.value += c
+            isName = true
+
+            continue 
+        }
+        
         if !src.Next() {
             break
         }
