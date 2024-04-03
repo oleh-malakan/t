@@ -53,8 +53,6 @@ term {
 }
 
 (t term) Parse(src *source) error {
-    isName bool
-    isOperator bool
     for {
         c := src.Char()
         if c == ' ' {
