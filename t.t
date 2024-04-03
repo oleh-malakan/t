@@ -45,6 +45,8 @@ statement {
 term {
     isName bool
     isOperator bool
+	isBeginBrackets bool
+    isEndBrackets bool
     isBeginSequence bool
     isEndSequence bool
     value string
