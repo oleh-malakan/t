@@ -31,19 +31,15 @@ statement {
 
 (s statement) Parse(src *source) error {   
     for {
-        t := auto term
+        t := new term
         err := t.Parse(src)
         if err != nil {
             return err
         }
 
-        s.IfAutoMemoryGC(t)
     }
 
     return nil
-}
-
-(s statement) IfAutoMemoryGC(t @term) {
 }
 
 term {
