@@ -55,14 +55,12 @@ term {
 (t term) Parse(src *source) error {
     isName bool
     isOperator bool
-    for src.Next() {
+    for {
         c := src.Char()
         if c == ' ' {
             if len(t.value) > 0 {         
                 break
-            }
-
-            continue 
+            } 
         }
         if c == '{' {
             if len(t.value) > 0 {         
@@ -71,7 +69,7 @@ term {
 
             t.isBeginCurlyBrackets = true
 
-            return nil
+            goto NEXT
         }
         if c == '}' {
             if len(t.value) > 0 {         
@@ -80,7 +78,7 @@ term {
 
             t.isEndCurlyBrackets = true
 
-            return nil
+            goto NEXT
         }
         if ((c >= '0' && c <= '9') || 
             (c >= 'A' && c <= 'Z') || 
@@ -95,8 +93,15 @@ term {
             continue 
         }
 
+        if !src.Next() {
+            break
+        }
     }
 
+    return nil
+
+NEXT:
+    src.Next()
     return nil
 }
 
