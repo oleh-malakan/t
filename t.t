@@ -43,13 +43,15 @@ statement {
 
 (s statement) Parse(src *source) error {  
     t = new term
-    for {
+    for src.Next() {
         c := src.Char()
 
         if c == ' ' {
             if len(t.value) > 0 {         
                 break
             } 
+
+            continue 
         }
 
         if c == '{' {
