@@ -29,7 +29,8 @@ sequence {
 statement { 
 }
 
-(s statement) Parse(src *source) error {   
+(s statement) Parse(src *source) error {  
+    t = new term
     for {
         c := src.Char()
 
@@ -44,7 +45,7 @@ statement {
                 break
             }
 
-            t.isBeginCurlyBrackets = true
+            t.type = TermBeginCurlyBrackets
 
             goto NEXT
         }
@@ -53,19 +54,19 @@ statement {
                 break
             }
 
-            t.isEndCurlyBrackets = true
+            t.type = TermEndCurlyBrackets
 
             goto NEXT
         }
         if ((c >= '0' && c <= '9') || 
             (c >= 'A' && c <= 'Z') || 
             (c >= 'a' && c <= 'z') || c == '_') {
-            if t.isOperator {
+            if t.type == TermOperator {
                 break
             }
 
             t.value += c
-            t.isName = true
+            t.type = TermName
         }
 
     }
@@ -73,13 +74,15 @@ statement {
     return nil
 }
 
+TermBeginCurlyBrackets ::= 0
+TermEndCurlyBrackets ::= 1
+TermBeginRoundBrackets ::= 2
+TermEndRoundBrackets ::= 3
+TermName ::= 4
+TermOperator ::= 5    
+    
 term {
-    isName bool
-    isOperator bool
-    isBeginBrackets bool
-    isEndBrackets bool
-    isBeginCurlyBrackets bool
-    isEndCurlyBrackets bool
+    type int
     value string
 }
 
