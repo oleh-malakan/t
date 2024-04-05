@@ -31,12 +31,7 @@ statement {
 
 (s statement) Parse(src *source) error {   
     for {
-        t := term
-        err := t.Parse(src)
-        if err != nil {
-            return err
-        }
-
+        c := src.Char()
     }
 
     return nil
