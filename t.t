@@ -26,6 +26,18 @@ sequence {
     return nil 
 }
 
+TermBeginCurlyBrackets ::= 0
+TermEndCurlyBrackets ::= 1
+TermBeginRoundBrackets ::= 2
+TermEndRoundBrackets ::= 3
+TermName ::= 4
+TermOperator ::= 5    
+    
+term {
+    type int
+    value string
+}
+
 statement { 
 }
 
@@ -72,18 +84,6 @@ statement {
     }
 
     return nil
-}
-
-TermBeginCurlyBrackets ::= 0
-TermEndCurlyBrackets ::= 1
-TermBeginRoundBrackets ::= 2
-TermEndRoundBrackets ::= 3
-TermName ::= 4
-TermOperator ::= 5    
-    
-term {
-    type int
-    value string
 }
 
 Main() {
