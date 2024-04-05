@@ -32,29 +32,13 @@ statement {
 (s statement) Parse(src *source) error {   
     for {
         c := src.Char()
-    }
 
-    return nil
-}
-
-term {
-    isName bool
-    isOperator bool
-    isBeginBrackets bool
-    isEndBrackets bool
-    isBeginCurlyBrackets bool
-    isEndCurlyBrackets bool
-    value string
-}
-
-(t term) Parse(src *source) error {
-    for {
-        c := src.Char()
         if c == ' ' {
             if len(t.value) > 0 {         
                 break
             } 
         }
+
         if c == '{' {
             if len(t.value) > 0 {         
                 break
@@ -84,16 +68,19 @@ term {
             t.isName = true
         }
 
-        if !src.Next() {
-            break
-        }
     }
 
     return nil
+}
 
-NEXT:
-    src.Next()
-    return nil
+term {
+    isName bool
+    isOperator bool
+    isBeginBrackets bool
+    isEndBrackets bool
+    isBeginCurlyBrackets bool
+    isEndCurlyBrackets bool
+    value string
 }
 
 Main() {
