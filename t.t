@@ -72,7 +72,7 @@ statement {
 
             goto NEXT
         }
-        if ((c >= '0' && c <= '9') || 
+        for ((c >= '0' && c <= '9') || 
             (c >= 'A' && c <= 'Z') || 
             (c >= 'a' && c <= 'z') || c == '_') {
             if t.type == TermOperator {
