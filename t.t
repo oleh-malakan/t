@@ -13,10 +13,11 @@ error {}
 sequence {
 }
 
-sequence::sequence() {
+sequence() sequence {
+    return sequence
 }
 
-sequence::~sequence() {
+sequence::~() {
 }
 
 sequence::Parse(src *source) error { 
