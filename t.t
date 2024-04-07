@@ -95,14 +95,15 @@ statement::Parse(src *source) error {
 }
 
 Main() {
-    src := new source
-    s := new sequence
+    src := &source
+    s := &sequence()
 
     err := s.Parse(src)
     if err != nil {   
         return
     }
 
-    free s
-    free src
+    ~s()
+    ~src
+
 }
