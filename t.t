@@ -96,7 +96,7 @@ statement:Parse(src *source) error {
 
 Main() {
     src := &source
-    s := &sequence()
+    s := &sequence
 
     err := s.Parse(src)
     if err != nil {   
