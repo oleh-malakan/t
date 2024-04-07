@@ -32,12 +32,12 @@ sequence:Parse(src *source) error {
     return nil 
 }
 
-:TermBeginCurlyBrackets = 0
-:TermEndCurlyBrackets = 1
-:TermBeginRoundBrackets = 2
-:TermEndRoundBrackets = 3
-:TermName = 4
-:TermOperator = 5    
+::TermBeginCurlyBrackets = 0
+::TermEndCurlyBrackets = 1
+::TermBeginRoundBrackets = 2
+::TermEndRoundBrackets = 3
+::TermName = 4
+::TermOperator = 5    
     
 term {
     type int
