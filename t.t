@@ -13,8 +13,7 @@ error {}
 sequence {
 }
 
-sequence() sequence {
-    return sequence
+sequence::() {
 }
 
 sequence::~() {
