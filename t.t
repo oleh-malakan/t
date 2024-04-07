@@ -96,7 +96,7 @@ statement::Parse(src *source) error {
 
 Main() {
     src := new source
-    s := new sequence()
+    s := new sequence
 
     err := s.Parse(src)
     if err != nil {   
