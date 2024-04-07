@@ -103,7 +103,6 @@ Main() {
         return
     }
 
-    ~s()
+    ~s
     ~src
-
 }
