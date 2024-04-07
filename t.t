@@ -1,11 +1,11 @@
 source {
 }
 
-(s source) Next() bool {
+source::Next() bool {
     return true
 }
 
-(s source) Char() char {
+source::Char() char {
 }
 
 error {}
@@ -13,7 +13,13 @@ error {}
 sequence {
 }
 
-(s sequence) Parse(src *source) error { 
+sequence::sequence() {
+}
+
+sequence::~sequence() {
+}
+
+sequence::Parse(src *source) error { 
     for {
         s := new statement
         err := s.Parse(src)
@@ -41,7 +47,7 @@ term {
 statement { 
 }
 
-(s statement) Parse(src *source) error {  
+statement::Parse(src *source) error {  
     t = new term
     for src.Next() {
         c := src.Char()
