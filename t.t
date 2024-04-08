@@ -19,7 +19,7 @@ sequenceFree(s *sequence) {
     ~s
 }
 
-sequenceParse(src *source) (*sequence, error) { 
+sequenceParse(src *source) *sequence, error { 
     seq := &sequence
     for {
         s := &statement
