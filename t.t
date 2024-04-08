@@ -8,18 +8,19 @@ source:Next() bool {
 source:Char() char {
 }
 
-error {}
+error {
+    Error() string
+}
 
 sequence {
 }
 
-sequence:() {
+sequenceFree(s *sequence) {
+    ~s
 }
 
-sequence:~() {
-}
-
-sequence:Parse(src *source) error { 
+sequenceParse(src *source) (*sequence, error) { 
+    seq := &sequence
     for {
         s := &statement
         err := s.Parse(src)
@@ -29,7 +30,7 @@ sequence:Parse(src *source) error {
 
     }
 
-    return nil 
+    return seq, nil 
 }
 
 ::TermBeginCurlyBrackets = 0
@@ -48,16 +49,18 @@ statement {
     v []*term
 }
 
-statement:~() {
-    for _, t := range .v {
+statementFree(s *statement) {
+    for _, t := range s.v {
         ~t
     }
   
-    ~.v
+    ~s.v
 }
 
-statement:Parse(src *source) error {  
-    .v = []*term
+statementParse(src *source) (*statement, error) {  
+    s := &statement{
+        v: []*term
+    }
 
     for {
         t := &term
@@ -115,18 +118,16 @@ statement:Parse(src *source) error {
         .v = .v + t
     }
 
-    return nil
+    return s, nil
 }
 
 Main() {
     src := &source
-    s := &sequence
-
-    err := s.Parse(src)
+    s, err := sequenceParse(src)
     if err != nil {   
         return
     }
 
-    ~s
+    sequenceFree(s) 
     ~src
 }
