@@ -29,7 +29,7 @@ sequenceParse(src *source) *sequence, error {
         }
 
     }
-
+    
     return seq, nil 
 }
 
@@ -57,7 +57,7 @@ statementFree(s *statement) {
     ~s.v
 }
 
-statementParse(src *source) (*statement, error) {  
+statementParse(src *source) *statement, error {  
     s := &statement{
         v: []*term
     }
