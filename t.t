@@ -51,6 +51,7 @@ statement {
 statement:Parse(src *source) error {  
     for {
         t := &term
+    LOOP:
         for src.Next() {
             c := src.Char()
 
@@ -84,11 +85,17 @@ statement:Parse(src *source) error {
                 (c >= 'A' && c <= 'Z') || 
                 (c >= 'a' && c <= 'z') || c == '_') {
                 if t.type == TermOperator {
-                    break
+                    break LOOP 
                 }
 
                 t.value += c
                 t.type = TermName
+
+                if !src.Next() {
+                    break LOOP 
+                }
+
+                c = src.Char()
             }
 
         }
