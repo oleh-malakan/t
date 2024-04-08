@@ -21,7 +21,7 @@ sequence:~() {
 
 sequence:Parse(src *source) error { 
     for {
-        s := &statement
+        s := new statement
         err := s.Parse(src)
         if err != nil {
             return err
@@ -49,14 +49,18 @@ statement {
 }
 
 statement:~() {
-    ~.v
+    for _, t := range .v {
+        free t
+    }
+  
+    free .v
 }
 
 statement:Parse(src *source) error {  
-    .v = []*term
+    .v = new []*term
 
     for {
-        t := &term
+        t := new term
     LOOP:
         for src.Next() {
             c := src.Char()
@@ -108,21 +112,21 @@ statement:Parse(src *source) error {
 
         }
 
-        .v = .v + t
+        .v = append(.v, t)
     }
 
     return nil
 }
 
 Main() {
-    src := &source
-    s := &sequence
+    src := new source
+    s := new sequence
 
     err := s.Parse(src)
     if err != nil {   
         return
     }
 
-    ~s
-    ~src
+    free s
+    free src
 }
