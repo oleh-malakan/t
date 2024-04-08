@@ -106,7 +106,7 @@ statement:Parse(src *source) error {
 
         }
 
-        .v = append(.v, t)
+        .v = .v + t
     }
 
     return nil
