@@ -49,47 +49,51 @@ statement {
 }
 
 statement:Parse(src *source) error {  
-    t := new term
-    for src.Next() {
-        c := src.Char()
+    for {
+        t := &term
+        for src.Next() {
+            c := src.Char()
 
-        if c == ' ' {
-            if len(t.value) > 0 {         
-                break
-            } 
+            if c == ' ' {
+                if len(t.value) > 0 {         
+                    break
+                } 
 
-            continue 
-        }
-
-        if c == '{' {
-            if len(t.value) > 0 {         
-                break
+                continue 
             }
 
-            t.type = TermBeginCurlyBrackets
+            if c == '{' {
+                if len(t.value) > 0 {         
+                    break
+                }
 
-            goto NEXT
-        }
-        if c == '}' {
-            if len(t.value) > 0 {         
+                t.type = TermBeginCurlyBrackets
+
                 break
             }
+            if c == '}' {
+                if len(t.value) > 0 {         
+                    break
+                }
 
-            t.type = TermEndCurlyBrackets
+                t.type = TermEndCurlyBrackets
 
-            goto NEXT
-        }
-        for ((c >= '0' && c <= '9') || 
-            (c >= 'A' && c <= 'Z') || 
-            (c >= 'a' && c <= 'z') || c == '_') {
-            if t.type == TermOperator {
                 break
             }
+            for ((c >= '0' && c <= '9') || 
+                (c >= 'A' && c <= 'Z') || 
+                (c >= 'a' && c <= 'z') || c == '_') {
+                if t.type == TermOperator {
+                    break
+                }
 
-            t.value += c
-            t.type = TermName
+                t.value += c
+                t.type = TermName
+            }
+
         }
 
+        .v = append(.v, t)
     }
 
     return nil
