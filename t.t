@@ -72,6 +72,7 @@ statement:Parse(src *source) error {
 
                 break
             }
+
             if c == '}' {
                 if len(t.value) > 0 {         
                     break
@@ -81,6 +82,7 @@ statement:Parse(src *source) error {
 
                 break
             }
+
             for ((c >= '0' && c <= '9') || 
                 (c >= 'A' && c <= 'Z') || 
                 (c >= 'a' && c <= 'z') || c == '_') {
