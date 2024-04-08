@@ -45,7 +45,7 @@ term {
 }
 
 statement { 
-	v []*term
+    v []*term
 }
 
 statement:Parse(src *source) error {  
