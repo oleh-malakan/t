@@ -51,8 +51,10 @@ statement {
 statement:~() {
     ~.v
 }
+
 statement:Parse(src *source) error {  
     .v = []*term
+
     for {
         t := &term
     LOOP:
