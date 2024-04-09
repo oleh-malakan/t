@@ -12,6 +12,16 @@ error {
     Error() string
 }
 
+module {
+}
+
+moduleParse(src *source) *module, error {
+}
+
+moduleFree(m *module) {
+    ~m
+}
+
 sequence {
 }
 
@@ -123,11 +133,11 @@ statementParse(src *source) *statement, error {
 
 Main() {
     src := &source
-    s, err := sequenceParse(src)
+    m, err := moduleParse(src)
     if err != nil {   
         return
     }
 
-    sequenceFree(s) 
+    moduleFree(m) 
     ~src
 }
