@@ -1,11 +1,12 @@
 source {
+    Next() bool
+    Char() char
 }
 
-source:Next() bool {
-    return true
-}
-
-source:Char() char {
+openSource(path string) *source {
+    s := &sourceImplemantation        
+    // open source ...
+    return s
 }
 
 error {
@@ -132,7 +133,8 @@ statementParse(src *source) *statement, error {
 }
 
 Main() {
-    src := &source
+    src *source
+    src = openSource("t.t")        
     m, err := moduleParse(src)
     if err != nil {   
         return
