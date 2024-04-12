@@ -26,7 +26,7 @@ moduleFree(m *module) {
 sequence {
 }
 
-sequenceFree(s *sequence) {
+sequenceFree(s sequence) {
     ~s
 }
 
