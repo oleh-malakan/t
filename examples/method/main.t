@@ -1,10 +1,10 @@
-Vector{
+Vector {
     X int
     Y int
     Z int
 }
 
-Vector:Max() int{
+Vector:Max() int {
     max := .X
     if .Y > max {
         max = .Y
@@ -17,7 +17,7 @@ Vector:Max() int{
 }
 
 Main() {
-    v1 := Vector{
+    v1 := Vector {
         X: 1
         Y: 2
         Z: 3
