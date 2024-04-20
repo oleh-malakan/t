@@ -52,8 +52,7 @@ sequenceParse(src @source) *sequence, @error {
 ::TermOperator = 5    
     
 term {
-    type int
-    value string
+    Value() string 
 }
 
 statement { 
@@ -74,7 +73,7 @@ statementParse(src @source) *statement, @error {
     }
 
     for {
-        t := &term
+        t := //&term
     LOOP:
         for src.Next() {
             c := src.Char()
