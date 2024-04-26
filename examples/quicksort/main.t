@@ -32,7 +32,7 @@ Main() {
     QuickSort(arr, 0, len(arr) - 1)
     ~arr
 
-    arr = []Vector
+    arr = []*Vector
     QuickSort(arr, 0, len(arr) - 1)
     ~arr
 }
