@@ -52,7 +52,7 @@ Scene:Add(shape *T) {
 
 
 Main() {
-    s := &Scene[Triangle]
+    s := &Scene[Shape]
     t := &Triangle[Graphics]
 
     s.Add(t)    
