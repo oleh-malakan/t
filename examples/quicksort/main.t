@@ -19,20 +19,16 @@ Vector:[<=](v1 type, v2 type) bool {
     return false
 }
 
-QuickSort[T comparable](arr []T, left int, right int) {
-
-}
-
 QuickSort(arr []@comparable, left int, right int) {
 
 }
 
 Main() {
-    arr := []int
+    arr :<- []int
     QuickSort(arr, 0, len(arr) - 1)
     ~arr
 
-    arr = []*Vector
+    arr <- []*Vector
     QuickSort(arr, 0, len(arr) - 1)
     ~arr
 }
