@@ -4,7 +4,7 @@ source {
 }
 
 openSource(path string) @source, @error {
-    s := &sourceImplemantation        
+    s :<- &sourceImplemantation        
     // open source ...
     return s, nil
 }
@@ -81,16 +81,16 @@ sequenceFree(s *sequence) {
 }
 
 sequenceParse(src @source) *sequence, @error { 
-    seq := &sequence
+    seq :<- &sequence
     for {
-        s := &statement
-        s, err := statementParse(src)
+        s :<- &statement
+        s, err : statementParse(src)
         if err != nil {
             ~seq
             return nil, err
         }
 
-        seq.v = append(seq.v, s)
+        seq.v <- append(seq.v, s)
     }
     
     return seq, nil 
@@ -101,7 +101,7 @@ statement {
 }
 
 statementFree(s *statement) {
-    for _, t := range s.v {
+    for _, t : range s.v {
         ~t
     }
   
@@ -113,13 +113,13 @@ statementParse(src @source) *statement, @error {
 }
 
 Main() {
-    src, err := openSource("t.t") 
+    src, err :<- openSource("t.t") 
     if err != nil { 
         ~err
         return
     }
 
-    m, err := moduleParse(src)
+    m, err :<- moduleParse(src)
     if err != nil { 
         ~err
         return
