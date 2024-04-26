@@ -50,7 +50,6 @@ Scene:Add(shape *T) {
 
 }
 
-
 Main() {
     s := &Scene[Shape]
     t := &Triangle[Graphics]
