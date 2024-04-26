@@ -19,6 +19,14 @@ Vector:[<=](v1 type, v2 type) bool {
     return false
 }
 
+Vector:[>](v1 type, v2 type) bool {
+    return false
+}
+
+Vector:[>=](v1 type, v2 type) bool {
+    return false
+}
+
 QuickSort(arr []@comparable, left int, right int) {
 
 }
