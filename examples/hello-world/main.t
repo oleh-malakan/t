@@ -1,4 +1,4 @@
-::hello = "Hello, World!"
+:hello = "Hello, World!"
 
 print(s string) {
 }
