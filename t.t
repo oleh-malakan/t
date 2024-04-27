@@ -1,10 +1,10 @@
 comparable {
-    [==](:v *type) bool
-    [!=](:v *type) bool
-    [<](:v *type) bool
-    [<=](:v *type) bool
-    [>](:v *type) bool
-    [>=](:v *type) bool
+    [==](v *type) bool
+    [!=](v *type) bool
+    [<](v *type) bool
+    [<=](v *type) bool
+    [>](v *type) bool
+    [>=](v *type) bool
 }
 
 error {
