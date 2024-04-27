@@ -7,27 +7,27 @@ Vector {
     z2 int
 }
 
-Vector:[==](v1 type, v2 type) bool {
+Vector:[==](v Vector) bool {
     return false
 }
 
-Vector:[!=](v1 type, v2 type) bool {
+Vector:[!=](v Vector) bool {
     return false
 }
 
-Vector:[<](v1 type, v2 type) bool {
+Vector:[<](v Vector) bool {
     return false
 }
 
-Vector:[<=](v1 type, v2 type) bool {
+Vector:[<=](v Vector) bool {
     return false
 }
 
-Vector:[>](v1 type, v2 type) bool {
+Vector:[>](v Vector) bool {
     return false
 }
 
-Vector:[>=](v1 type, v2 type) bool {
+Vector:[>=](v Vector) bool {
     return false
 }
 
