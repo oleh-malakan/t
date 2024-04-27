@@ -1,3 +1,16 @@
+comparable {
+    [==](v type) bool
+    [!=](v type) bool
+    [<](v type) bool
+    [<=](v type) bool
+    [>](v type) bool
+    [>=](v type) bool
+}
+
+error {
+    Error() string
+}
+
 source {
     Next() bool
     Char() char
@@ -7,10 +20,6 @@ openSource(path string) @source, @error {
     s :<- &sourceImplemantation        
     // open source ...
     return s, nil
-}
-
-error {
-    Error() string
 }
 
 module {
