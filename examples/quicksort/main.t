@@ -1,46 +1,9 @@
-Vector {
-    x1 int
-    y1 int
-    z1 int
-    x2 int
-    y2 int
-    z2 int
-}
-
-Vector:[==](v *Vector) bool {
-    return false
-}
-
-Vector:[!=](v *Vector) bool {
-    return false
-}
-
-Vector:[<](v *Vector) bool {
-    return false
-}
-
-Vector:[<=](v *Vector) bool {
-    return false
-}
-
-Vector:[>](v *Vector) bool {
-    return false
-}
-
-Vector:[>=](v *Vector) bool {
-    return false
-}
-
 QuickSort(arr []@comparable, left int, right int) {
 
 }
 
 Main() {
-    arr :<- []int
-    QuickSort(arr, 0, len(arr) - 1)
-    ~arr
-
-    arr <- []*Vector
+    arr :<- []int{3, 2, 1, 4, 5, 6, 7, 8, 9, 10}
     QuickSort(arr, 0, len(arr) - 1)
     ~arr
 }
