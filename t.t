@@ -1,12 +1,3 @@
-comparable {
-    [==](v *type) bool
-    [!=](v *type) bool
-    [<](v *type) bool
-    [<=](v *type) bool
-    [>](v *type) bool
-    [>=](v *type) bool
-}
-
 error {
     Error() string
 }
@@ -122,13 +113,13 @@ statementParse(src @source) *statement, @error {
 }
 
 Main() {
-    src, err :<- openSource("t.t") 
+    src, err : openSource("t.t") 
     if err != nil { 
         ~err
         return
     }
 
-    m, err :<- moduleParse(src)
+    m, err : moduleParse(src)
     if err != nil { 
         ~err
         return
