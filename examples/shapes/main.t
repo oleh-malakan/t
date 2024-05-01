@@ -2,26 +2,26 @@ Graphics {}
 
 Shape {
     Update(dt int)
-    Draw(g @Graphics)
+    Draw(g &Graphics)
 }
 
 Triangle {}
 
 Triangle:Update(dt int) {}
 
-Triangle:Draw(g @Graphics) {}
+Triangle:Draw(g &Graphics) {}
 
 Scene {
-    shapes []@Shape
+    shapes []&Shape
 }
 
-Scene:Add(shape @Shape) {
+Scene:Add(shape &Shape) {
 
 }
 
 Main() {
-    s :<- &Scene
-    t :<- &Triangle
+    s :<- Scene
+    t :<- Triangle
 
     s.Add(t)    
 

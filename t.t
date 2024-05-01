@@ -7,8 +7,8 @@ source {
     Char() char
 }
 
-openSource(path string) @source, @error {
-    s :<- &sourceImplemantation        
+openSource(path string) &source, &error {
+    s :<- sourceImplemantation        
     // open source ...
     return s, nil
 }
@@ -17,7 +17,7 @@ module {
 
 }
 
-moduleParse(src @source) *module, @error {
+moduleParse(src &source) *module, &error {
 }
 
 moduleFree(m *module) {
@@ -77,16 +77,18 @@ sequence {
 }
 
 sequenceFree(s *sequence) {
+
     ~s
 }
 
-sequenceParse(src @source) *sequence, @error { 
-    seq :<- &sequence
+sequenceParse(src &source) *sequence, &error { 
+    seq :<- sequence
     for {
-        s :<- &statement
+        s :<- statement
+        err &error
         s, err : statementParse(src)
-        if err != nil {
-            ~seq
+        if @err != nil {
+            sequenceFree(seq)
             return nil, err
         }
 
@@ -97,7 +99,7 @@ sequenceParse(src @source) *sequence, @error {
 }
 
 statement { 
-    v []@term
+    v []&term
 }
 
 statementFree(s *statement) {
@@ -108,19 +110,20 @@ statementFree(s *statement) {
     ~s.v
 }
 
-statementParse(src @source) *statement, @error {  
+statementParse(src &source) *statement, &error {  
 
 }
 
 Main() {
+    err &error
     src, err : openSource("t.t") 
-    if err != nil { 
+    if @err != nil { 
         ~err
         return
     }
 
     m, err : moduleParse(src)
-    if err != nil { 
+    if @err != nil { 
         ~err
         return
     }
