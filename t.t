@@ -115,19 +115,20 @@ statementParse(src &source) *statement, &error {
 }
 
 Main() {
+    src &source
     err &error
     src, err : openSource("t.t") 
     if @err != nil { 
         ~err
         return
     }
+    defer ~src
 
+    m *module
     m, err : moduleParse(src)
     if @err != nil { 
         ~err
         return
     }
-
-    moduleFree(m) 
-    ~src
+    defer moduleFree(m) 
 }
