@@ -5,7 +5,9 @@ Shape {
     Draw(g &Graphics)
 }
 
-Triangle {}
+Triangle {
+    Size int
+}
 
 Triangle:Update(dt int) {}
 
@@ -16,15 +18,23 @@ Scene {
 }
 
 Scene:Add(shape &Shape) {
+    .shapes <- append(.shapes, shape)
+}
 
+SceneFree(s *Scene) {
+    for _, shape := range s.shapes {
+        ~shape
+    }
+
+    ~s
 }
 
 Main() {
     s :<- Scene
-    t :<- Triangle
 
-    s.Add(t)    
+    s.Add(Triangle{
+        Size: 5
+    })    
 
-    ~s
-    ~t
+    SceneFree(s)
 }
