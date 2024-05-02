@@ -2,93 +2,93 @@ error {
     Error() string
 }
 
-source {
+Source {
     Next() bool
     Char() char
 }
 
-openSource(path string) &source, &error {
-    s :<- sourceImplemantation        
+OpenSource(path string) &Source, &error {
+    s :<- SourceImplemantation        
     // open source ...
     return s, nil
 }
 
-module {
+Module {
 
 }
 
-moduleParse(src &source) *module, &error {
+ModuleParse(src &Mource) *Module, &error {
 }
 
-moduleFree(m *module) {
+ModuleFree(m *Module) {
     ~m
 }
 
-declaration {
+Declaration {
 
 }
 
-muduleDeclaration {
+ModuleDeclaration {
 
 }
 
-constantDeclaration {
+ConstantDeclaration {
 
 }
 
-globalVariableDeclaration {
+GlobalVariableDeclaration {
 
 }
 
-typeDeclaration {
+TypeDeclaration {
 
 }
 
-interfaceDeclaration {
+InterfaceDeclaration {
 
 }
 
-functionDeclaration {
+FunctionDeclaration {
 
 }
     
-term {
+Term {
     Value() string 
 }
 
-variable {
+Variable {
     
 }
 
-operator {
+Operator {
 
 }
 
-function {
+Function {
 
 }
 
-keyword {
+Keyword {
 
 }
 
-sequence {
+Sequence {
 
 }
 
-sequenceFree(s *sequence) {
+SequenceFree(s *Sequence) {
 
     ~s
 }
 
-sequenceParse(src &source) *sequence, &error { 
-    seq :<- sequence
+SequenceParse(src &Source) *Sequence, &error { 
+    seq :<- Sequence
     for {
-        s :<- statement
+        s :<- Statement
         err &error
-        s, err : statementParse(src)
+        s, err : StatementParse(src)
         if @err != nil {
-            sequenceFree(seq)
+            SequenceFree(seq)
             return nil, err
         }
 
@@ -98,11 +98,11 @@ sequenceParse(src &source) *sequence, &error {
     return seq, nil 
 }
 
-statement { 
-    v []&term
+Statement { 
+    v []&Term
 }
 
-statementFree(s *statement) {
+StatementFree(s *Statement) {
     for _, t : range s.v {
         ~t
     }
@@ -110,25 +110,25 @@ statementFree(s *statement) {
     ~s.v
 }
 
-statementParse(src &source) *statement, &error {  
+StatementParse(src &Source) *Statement, &error {  
 
 }
 
 Main() {
-    src &source
+    src &Source
     err &error
-    src, err : openSource("t.t") 
+    src, err : OpenSource("t.t") 
     if @err != nil { 
         ~err
         return
     }
     defer ~src
 
-    m *module
-    m, err : moduleParse(src)
+    m *Module
+    m, err : ModuleParse(src)
     if @err != nil { 
         ~err
         return
     }
-    defer moduleFree(m) 
+    defer ModuleFree(m) 
 }
