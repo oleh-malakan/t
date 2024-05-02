@@ -21,7 +21,7 @@ Scene:Add(shape &Shape) {
     .shapes <- append(.shapes, shape)
 }
 
-SceneFree(s *Scene) {
+FreeScene(s *Scene) {
     for _, shape := range s.shapes {
         ~shape
     }
@@ -36,5 +36,5 @@ Main() {
         Size: 5
     })    
 
-    SceneFree(s)
+    FreeScene(s)
 }
