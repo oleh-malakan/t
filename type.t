@@ -129,6 +129,8 @@ string:[+](v *char) *string {}
 
 string:[+](v *string) *string {}
 
-string:[[]](index *int) *char {}
+string:[index int](v char) {}
 
-string:[[:]](ofset *int, len *int) *string {}
+string:[index int]() char {}
+
+string:[ofset int: len int]() string {}
