@@ -3,8 +3,9 @@ error {
 }
 
 Source {
-    Next() bool
-    Char() char
+    [index int64]() char
+    [offset int64: len int64]() &Source 
+    Len() int64
 }
 
 OpenSource(path string) &Source, &error {
