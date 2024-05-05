@@ -18,10 +18,10 @@ Module {
 
 }
 
-ModuleParse(src &Source) *Module, &error {
+ParseModule(src &Source) *Module, &error {
 }
 
-ModuleFree(m *Module) {
+FreeModule(m *Module) {
     ~m
 }
 
@@ -77,12 +77,12 @@ Sequence {
 
 }
 
-SequenceFree(s *Sequence) {
+FreeSequence(s *Sequence) {
 
     ~s
 }
 
-SequenceParse(src &Source) *Sequence, &error { 
+ParseSequence(src &Source) *Sequence, &error { 
     seq :<- Sequence
     for {
         s :<- Statement
@@ -103,7 +103,7 @@ Statement {
     v []&Term
 }
 
-StatementFree(s *Statement) {
+FreeStatement(s *Statement) {
     for _, t : range s.v {
         ~t
     }
@@ -111,7 +111,7 @@ StatementFree(s *Statement) {
     ~s.v
 }
 
-StatementParse(src &Source) *Statement, &error {  
+ParseStatement(src &Source) *Statement, &error {  
 
 }
 
@@ -126,10 +126,10 @@ Main() {
     defer ~src
 
     m *Module
-    m, err : ModuleParse(src)
+    m, err : ParseModule(src)
     if @err != nil { 
         ~err
         return
     }
-    defer ModuleFree(m) 
+    defer FreeModule(m) 
 }
