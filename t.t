@@ -18,7 +18,7 @@ Module {
 
 }
 
-ModuleParse(src &Mource) *Module, &error {
+ModuleParse(src &Source) *Module, &error {
 }
 
 ModuleFree(m *Module) {
