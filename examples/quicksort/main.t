@@ -1,4 +1,4 @@
-QuickSort(arr []&comparable, left int, right int) {
+QuickSort(arr []&comparable, left *int, right *int) {
 
 }
 
