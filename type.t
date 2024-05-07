@@ -8,11 +8,18 @@ comparable {
 }
 
 calculable {
-    [+](v *type) *type
-    [-](v *type) *type
-    [*](v *type) *type
-    [/](v *type) *type
-    [%](v *type) *type
+    [+](v *type) type
+    [-](v *type) type
+    [*](v *type) type
+    [/](v *type) type
+    [%](v *type) type
+}
+
+iterable {
+    [index *type?1]() ?type?2
+    [+](v *type?1) type?1
+    Step() type?1
+    Len() type?1
 }
 
 bool {}
@@ -51,15 +58,15 @@ byte:[>](v *byte) bool {}
 
 byte:[>=](v *byte) bool {}
 
-byte:[+](v *byte) *byte {}
+byte:[+](v *byte) byte {}
 
-byte:[-](v *byte) *byte {}
+byte:[-](v *byte) byte {}
 
-byte:[*](v *byte) *byte {}
+byte:[*](v *byte) byte {}
 
-byte:[/](v *byte) *byte {}
+byte:[/](v *byte) byte {}
 
-byte:[%](v *byte) *byte {}
+byte:[%](v *byte) byte {}
 
 int {}
 
@@ -79,15 +86,15 @@ int:[>](v *int) bool {}
 
 int:[>=](v *int) bool {}
 
-int:[+](v *int) *int {}
+int:[+](v *int) int {}
 
-int:[-](v *int) *int {}
+int:[-](v *int) int {}
 
-int:[*](v *int) *int {}
+int:[*](v *int) int {}
 
-int:[/](v *int) *int {}
+int:[/](v *int) int {}
 
-int:[%](v *int) *int {}
+int:[%](v *int) int {}
 
 char {}
 
@@ -125,12 +132,14 @@ string:[>](v *string) bool {}
 
 string:[>=](v *string) bool {}
 
-string:[+](v *char) *string {}
+string:[+](v *char) string {}
 
-string:[+](v *string) *string {}
+string:[+](v *string) string {}
 
-string:[index int](v char) {}
+string:[index *int](v char) {}
 
-string:[index int]() char {}
+string:[index *int]() char {}
 
-string:[ofset int: len int]() string {}
+string:[ofset *int: len *int]() string {}
+
+string:Len() int {}

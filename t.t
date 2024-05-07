@@ -3,8 +3,10 @@ error {
 }
 
 Source {
-    [index int64]() char
-    [offset int64: len int64]() &Source 
+    [offset *int64: len *int64]() &Source 
+    [index *int64]() char
+    [+](v *int64) int64
+    Step() int64
     Len() int64
 }
 
