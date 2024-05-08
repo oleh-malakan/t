@@ -1,5 +1,5 @@
 // think
-Queue [T any]{}
+Queue[T any] {}
 
 // think
 Queue:Push(v T) {
@@ -12,7 +12,7 @@ Queue:Pull() T {
 }
 
 // think
-SortQueue [T comparable]{}
+SortQueue[T comparable] {}
 
 // think
 SortQueue:Push(v T) {
