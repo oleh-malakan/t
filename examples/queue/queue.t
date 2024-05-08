@@ -12,7 +12,7 @@ Queue:Pull() T {
 }
 
 // think
-SortQueue [T &comparable]{}
+SortQueue [T comparable]{}
 
 // think
 SortQueue:Push(v T) {
