@@ -1,3 +1,5 @@
+any {}
+
 comparable {
     [==](v *type) bool
     [!=](v *type) bool
@@ -15,12 +17,7 @@ calculable {
     [%](v *type) type
 }
 
-iterable {
-    [index *type?1]() ?type?2
-    [+](v *type?1) type?1
-    Step() type?1
-    Len() type?1
-}
+iterable {}
 
 bool {}
 

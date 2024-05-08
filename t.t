@@ -5,8 +5,6 @@ error {
 Source {
     [offset *int64: len *int64]() &Source 
     [index *int64]() char
-    [+](v *int64) int64
-    Step() int64
     Len() int64
 }
 
@@ -17,7 +15,12 @@ OpenSource(path string) &Source, &error {
 }
 
 Module {
-
+    moduleImport                []*ModuleImport
+    constantDeclaration         []*ConstantDeclaration
+    globalVariableDeclaration   []*GlobalVariableDeclaration
+    typeDeclaration             []*TypeDeclaration
+    interfaceDeclaration        []*InterfaceDeclaration
+    functionDeclaration         []*FunctionDeclaration   
 }
 
 ParseModule(src &Source) *Module, &error {
@@ -31,7 +34,7 @@ Declaration {
 
 }
 
-ModuleDeclaration {
+ModuleImport {
 
 }
 
