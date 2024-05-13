@@ -23,7 +23,12 @@ Matrix:[i int][j int](v T) {
 }
 
 Matrix:[*](m *Matrix[T]) Matrix[T] {}
+
 Matrix:[=](m *Matrix[T]) {}
+
+RotateMatrix[T Float](alfa int, beta int, gamma int) Matrix[T] {}
+
+ScaleMatrix[T Float](v int) Matrix[T] {}
 
 Main() {
     
