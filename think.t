@@ -16,7 +16,7 @@ think() {
     a2 <- int(4)
     a2 = a1
 
-    if @a2 != nil && a2 == 4 {
+    if @a2 && a2 == 4 {
 
     }
 
@@ -28,7 +28,7 @@ think() {
     c1 &comparable
     c1 <- a1
 
-    if @c1 != nil && c1 == 5 {
+    if @c1 && c1 == 5 {
 
     }
 
