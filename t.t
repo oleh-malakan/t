@@ -3,9 +3,7 @@ error {
 }
 
 Source {
-    [offset *int64: len *int64]() &Source 
-    [index *int64]() char
-    Len() int64
+    Next() *char
 }
 
 OpenSource(path string) &Source, &error {
