@@ -22,9 +22,6 @@ think() {
 
     a3 :<- a1
 
-    a4 **int
-    a4 <- @a2
-
     c1 &comparable
     c1 <- a1
 
@@ -37,10 +34,6 @@ think() {
 
     someFunc(a2, a1, c2)
 
-    b1 *&comparable
-    b1 <- @a1
-
-    someFunc(a2, a1, *b1)
     ~a2
 
     a4 :<- []int{1, 2, 3, 4, 5}
