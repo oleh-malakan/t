@@ -3,9 +3,9 @@ error {
 }
 
 Source {
-    [offset *int64: len *int64]() &Source 
-    [index *int64]() char
-    Len() int64
+    [offset *int: len *int]() &Source 
+    [index *int]() char
+    Len() int
 }
 
 OpenSource(path string) &Source, &error {
@@ -93,7 +93,7 @@ ParseSequence(src &Source) *Sequence, &error {
         s :<- Statement
         err &error
         s, err : StatementParse(src)
-        if @err != nil {
+        if @err {
             SequenceFree(seq)
             return nil, err
         }
@@ -124,7 +124,7 @@ Main() {
     src &Source
     err &error
     src, err : OpenSource("t.t") 
-    if @err != nil { 
+    if @err { 
         ~err
         return
     }
@@ -132,7 +132,7 @@ Main() {
 
     m *Module
     m, err : ParseModule(src)
-    if @err != nil { 
+    if @err { 
         ~err
         return
     }
