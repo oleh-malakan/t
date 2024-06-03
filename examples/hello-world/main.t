@@ -1,6 +1,8 @@
+::hello = "Hello, World!"
+
 print(s string) {
 }
 
 Main() {
-    print("Hello, World!")
+    print(hello)
 }
