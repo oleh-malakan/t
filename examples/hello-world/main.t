@@ -2,7 +2,7 @@ print(s string) {
 }
 
 Main() {
-hello := "Hello, World!"
+	hello := "Hello, World!"
 
     print(hello)
 }
