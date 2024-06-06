@@ -113,30 +113,30 @@ char:[>=](v *char) bool {}
 
 string {}
 
-string:[=](@addr) {}
+string =(@addr) {}
 
-string:[=](v *string) {}
+string =(%v *string) {}
 
-string:[==](v *string) bool {}
+string ==(%v *string) bool {}
 
-string:[!=](v *string) bool {}
+string !=(%v *string) bool {}
 
-string:[<](v *string) bool {}
+string <(%v *string) bool {}
 
-string:[<=](v *string) bool {}
+string <=(%v *string) bool {}
 
-string:[>](v *string) bool {}
+string >(%v *string) bool {}
 
-string:[>=](v *string) bool {}
+string >=(%v *string) bool {}
 
-string:[+](v *char) string {}
+string +(%v *char) string {}
 
-string:[+](v *string) string {}
+string +(%v *string) string {}
 
-string:[index *int](v char) {}
+string [%index *int](v char) {}
 
-string:[index *int]() char {}
+string [%index *int]() char {}
 
-string:[ofset *int: len *int]() string {}
+string [%ofset *int: %len *int]() string {}
 
-string:Len() int {}
+string Len() *int% {}
