@@ -1,41 +1,41 @@
 any {}
 
 comparable {
-    [==](v *type) bool
-    [!=](v *type) bool
-    [<](v *type) bool
-    [<=](v *type) bool
-    [>](v *type) bool
-    [>=](v *type) bool
+    ==(%v *type) bool
+    !=(%v *type) bool
+    <(%v *type) bool
+    <=(%v *type) bool
+    >(%v *type) bool
+    >=(%v *type) bool
 }
 
 calculable {
-    [+](v *type) type
-    [-](v *type) type
-    [*](v *type) type
-    [/](v *type) type
-    [%](v *type) type
+    [+](%v *type) type
+    [-](%v *type) type
+    [*](%v *type) type
+    [/](%v *type) type
+    [%](%v *type) type
 }
 
 iterable {}
 
 bool {}
 
-bool:[=](@addr) {}
+bool =(@addr) {}
 
-bool:[=](v *bool) {}
+bool =(%v *bool) {}
 
-bool:[==](v *bool) bool {}
+bool ==(%v *bool) bool {}
 
-bool:[!=](v *bool) bool {}
+bool !=(%v *bool) bool {}
 
-bool:[<](v *bool) bool {}
+bool <(%v *bool) bool {}
 
-bool:[<=](v *bool) bool {}
+bool <=(%v *bool) bool {}
 
-bool:[>](v *bool) bool {}
+bool >(%v *bool) bool {}
 
-bool:[>=](v *bool) bool {}
+bool >=(%v *bool) bool {}
 
 byte {}
 
