@@ -15,7 +15,7 @@ Type {
 
 addFunction(m *Type, f *function.Type) {
     if m.funcLen == m.funcCap {
-        m.funcCap += 10
+        m.funcCap += 64
         new := [m.funcCap]function.Type
         for i := int64(0); i < m.funcLen; i++ {
             new[i] = m.funcArr[i]
@@ -31,7 +31,7 @@ addFunction(m *Type, f *function.Type) {
 
 addStructure(m *Type, s *structure.Type) {
     if m.structLen == m.structCap {
-        m.structCap += 10
+        m.structCap += 64
         new := [m.structCap]structure.Type
         for i := int64(0); i < m.structLen; i++ {
             new[i] = m.structArr[i]
