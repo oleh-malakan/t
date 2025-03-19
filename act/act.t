@@ -7,12 +7,12 @@ Type {
 }
 
 mLen := int64(0)
-mCap := int64(10)
+mCap := int64(64)
 mArr := [mCap]*module.Type
 
 addModule(m *module.Type) {
     if mLen == mCap {
-        mCap += 10
+        mCap += 64
         new := [mCap]*module.Type
         for i := int64(0); i < mLen; i++ {
             new[i] = mArr[i]
