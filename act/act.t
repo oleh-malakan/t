@@ -1,5 +1,11 @@
 <act/module>
 
+Type {
+    mArr []*module.Type
+    mLen int64 
+    mCap int64 
+}
+
 mLen := int64(0)
 mCap := int64(10)
 mArr := [mCap]*module.Type
