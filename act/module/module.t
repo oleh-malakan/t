@@ -1,46 +1,60 @@
 <act/function>
 <act/structure>
 
-Type {    
+T {    
     GUID [256]byte
     Name [256]byte
 
-    funcArr []function.Type
-    funcLen int64
-    funcCap int64
-    structArr []structure.Type
-    structLen int64
-    structCap int64
+    functionArr []function.T
+    functionLen int64
+    functionCap int64
+    structureArr []structure.T
+    structureLen int64
+    structureCap int64
 }
 
-addFunction(m *Type, f *function.Type) {
-    if m.funcLen == m.funcCap {
-        m.funcCap += 64
-        new := [m.funcCap]function.Type
-        for i := int64(0); i < m.funcLen; i++ {
-            new[i] = m.funcArr[i]
+addFunction(m *T, f *function.T) {
+    if m.functionLen == m.functionCap {
+        m.functionCap += 64
+        new := [m.functionCap]function.T
+        for i := int64(0); i < m.functionLen; i++ {
+            new[i] = m.functionArr[i]
         }
-        tmp := m.funcArr
-        m.funcArr = new
+        tmp := m.functionArr
+        m.functionArr = new
         ~tmp
     }
 
-    m.funcArr[m.funcLen] = f
-    m.funcLen++
+    m.functionArr[m.functionLen] = f
+    m.functionLen++
 }
 
-addStructure(m *Type, s *structure.Type) {
-    if m.structLen == m.structCap {
-        m.structCap += 64
-        new := [m.structCap]structure.Type
-        for i := int64(0); i < m.structLen; i++ {
-            new[i] = m.structArr[i]
+addStructure(m *T, s *structure.T) {
+    if m.structureLen == m.Cap {
+        m.structureCap += 64
+        new := [m.sCap]structure.T
+        for i := int64(0); i < m.structureLen; i++ {
+            new[i] = m.structureArr[i]
         }
-        tmp := m.structArr
-        m.structArr = new
+        tmp := m.structureArr
+        m.structureArr = new
         ~tmp
     }
 
-    m.structArr[m.structLen] = s
-    m.structArr++
+    m.structureArr[m.structureLen] = s
+    m.structureArr++
+}
+
+Free(m *T) {
+    for i := int64(0); i < m.functionLen; i++ {
+        function.Free(m.functionArr[i])
+    }
+    ~m.functionArr
+
+    for i := int64(0); i < m.structureLen; i++ {
+        structure.Free(m.structureArr[i])
+    }
+    ~m.structureArr
+    
+    ~m
 }

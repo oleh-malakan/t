@@ -1,28 +1,43 @@
 <act/module>
+<error>
 
-Type {
-    mArr []*module.Type
-    mLen int64 
-    mCap int64 
+T {
+    moduleArr []*module.T
+    moduleLen int64 
+    moduleCap int64 
 }
 
-mLen := int64(0)
-mCap := int64(64)
-mArr := [mCap]*module.Type
-
-addModule(m *module.Type) {
-    if mLen == mCap {
-        mCap += 64
-        new := [mCap]*module.Type
-        for i := int64(0); i < mLen; i++ {
-            new[i] = mArr[i]
+addModule(t *T, m *module.T) {
+    if t.moduleLen == t.moduleCap {
+        t.moduleCap += 64
+        new := [t.moduleCap]*module.T
+        for i := int64(0); i < t.moduleLen; i++ {
+            new[i] = t.moduleArr[i]
         }
-        tmp := mArr
-        mArr = new
+        tmp := t.moduleArr
+        t.moduleArr = new
         ~tmp
     }
 
-    mArr[mLen] = m
-    mLen++
+    t.moduleArr[t.moduleLen] = m
+    t.moduleLen++
 }
 
+Parse() (*T, *error.T) {
+    t := &T{
+        moduleArr: [64]*module.T,
+        moduleLen: 0,
+        moduleCap: 64,
+    }
+
+    return t, nil
+}
+
+Free(t *T) {
+    for i := int64(0); i < t.moduleLen; i++ {
+        module.Free(t.moduleArr[i])
+    }
+    ~t.moduleArr
+    
+    ~t
+}
